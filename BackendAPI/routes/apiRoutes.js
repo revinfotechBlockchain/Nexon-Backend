@@ -205,6 +205,20 @@ router.post('/transferFrom', contractApi.transferFrom);
 router.post('/burnToken', contractApi.burnToken);
 
    /**
+   * @typedef mintToken
+   * @property {String} privateKey.required - Add privateKey - eg: 0x3e2b296f55b5768b0b6e28fa318e613a4c4bfa3a26142e89453eb6a89f7f5978
+   * @property {String} fromAddress.required - Add fromAddress - eg: 0x98A000309527D55031238457A95b80B6AdD3CcaB
+   * @property {String} amount.required - Add amount - eg: 5
+   */
+   /**
+   * @route POST /api/eth/nexon/mintToken
+   * @param {mintToken.model} req.body
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.post('/mintToken', contractApi.mintToken);
+
+   /**
    * @typedef transferOwnership
    * @property {String} privateKey.required - Add privateKey - eg: 0x3e2b296f55b5768b0b6e28fa318e613a4c4bfa3a26142e89453eb6a89f7f5978
    * @property {String} fromAddress.required - Add fromAddress - eg: 0x98A000309527D55031238457A95b80B6AdD3CcaB
@@ -220,7 +234,7 @@ router.post('/transferOwnership', contractApi.transferOwnership);
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------//
-//-------------------------------------------------------------ROUTES FOR POWERBALL FUNCTIONALITY--------------------------------------------------------------------//
+//-------------------------------------------------------------ROUTES FOR NEXON FUNCTIONALITY------------------------------------------------------------------------//
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
    /**
