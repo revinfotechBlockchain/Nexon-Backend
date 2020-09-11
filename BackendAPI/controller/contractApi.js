@@ -368,21 +368,183 @@ getPurchaseableTokenAddress: async (req, res) => {
     }
 },
 
-
-
-getStartTime: async (req, res) => {
+getPriceOfToken: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getStartTime(req.query.saleId).call();
-            let response = {status:true, time:resp};
+        var resp = await newContract.methods.getPriceToken().call();
+        let response = {status:true, priceOfToken:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Price of Token, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getRewardPercentage: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getRewardPercentage().call();
+        let response = {status:true, percentage:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Reward Percentage, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getPenaltyPercentage: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getPenaltyPercentage().call();
+        let response = {status:true, percentage:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Penalty Percentage, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getPenaltyIfWithdrawToday: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getPaneltyIfWithdrawToday(req.query.id).call();
+            let response = {status:true, penalty:resp};
             res.send(response);
         } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
             res.send(response);
         }
     } catch(err){
-        let response = {status:false, message:"Unable to get Start Time by Sale ID, Please Try Again!!!"};
+        let response = {status:false, message:"Unable to get Penalty by Today, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getReferralAddress: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getReferralAddress().call();
+        let response = {status:true, address:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Referral Address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getReferralAmount: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getReferralAmount().call();
+        let response = {status:true, amount:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Referral Amount, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getClaimTokens: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getClaimTokens().call();
+        let response = {status:true, token:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Claimed Tokens, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getRewardsDetailsOfUserById: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getRewardsDetailsOfUserById(req.query.id).call();
+            let response = {status:true, amount:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Reward details by user id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getTotalETH: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getTotalTrx().call();
+        let response = {status:true, ETH:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get total ETH, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getStakingCount: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getStakingCount().call();
+        let response = {status:true, count:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Staking Count, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getMyPurchasedTokens: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.address && !req.query.address == ""){
+            var resp = await newContract.methods.getMyPurchasedTokens(req.query.address).call();
+            let response = {status:true, token:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Address & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Purchased Token by address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getETHAmountByAddress: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.address && !req.query.address == ""){
+            var resp = await newContract.methods.getTrxAmountByAddress(req.query.address).call();
+            let response = {status:true, amount:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Address & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get ETH Amount by address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getFinalWithdrawlStake: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getFinalWithdrawlStake(req.query.id).call();
+            let response = {status:true, finalStake:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Final Withdrawl Stake by user id, Please Try Again!!!"};
         res.send(response);
     }
 },

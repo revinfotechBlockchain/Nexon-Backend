@@ -277,17 +277,151 @@ router.get('/getTokenpoolAddress', contractApi.getTokenpoolAddress);
    */
 router.get('/getPurchaseableTokenAddress', contractApi.getPurchaseableTokenAddress);
 
+   /**
+   * @typedef getPriceOfToken
+   */
+   /**
+   * @route GET /api/eth/nexon/getPriceOfToken
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getPriceOfToken', contractApi.getPriceOfToken);
+
+   /**
+   * @typedef getRewardPercentage
+   */
+   /**
+   * @route GET /api/eth/nexon/getRewardPercentage
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getRewardPercentage', contractApi.getRewardPercentage);
+
+   /**
+   * @typedef getPenaltyPercentage
+   */
+   /**
+   * @route GET /api/eth/nexon/getPenaltyPercentage
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getPenaltyPercentage', contractApi.getPenaltyPercentage);
+
     /**
-    * @typedef getStartTime
-    * @property {String} saleId.required - Add saleId - eg: 1
+    * @typedef getPenaltyIfWithdrawToday
+    * @property {String} id.required - Add id - eg: 1
     */
     /**
-    * @route GET /api/eth/getStartTime
-    * @param {getStartTime.model} saleId.query
+    * @route GET /api/eth/nexon/getPenaltyIfWithdrawToday
+    * @param {getPenaltyIfWithdrawToday.model} id.query
     * @group Smart_Contract_API
     * @security Basic Auth
     */
-router.get('/getStartTime', contractApi.getStartTime);
+router.get('/getPenaltyIfWithdrawToday', contractApi.getPenaltyIfWithdrawToday);
+
+   /**
+   * @typedef getReferralAddress
+   */
+   /**
+   * @route GET /api/eth/nexon/getReferralAddress
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getReferralAddress', contractApi.getReferralAddress);
+
+   /**
+   * @typedef getReferralAmount
+   */
+   /**
+   * @route GET /api/eth/nexon/getReferralAmount
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getReferralAmount', contractApi.getReferralAmount);
+
+   /**
+   * @typedef getClaimTokens
+   */
+   /**
+   * @route GET /api/eth/nexon/getClaimTokens
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getClaimTokens', contractApi.getClaimTokens);
+
+    /**
+    * @typedef getRewardsDetailsOfUserById
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getRewardsDetailsOfUserById
+    * @param {getRewardsDetailsOfUserById.model} id.query
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.get('/getRewardsDetailsOfUserById', contractApi.getRewardsDetailsOfUserById);
+
+   /**
+   * @typedef getTotalETH
+   */
+   /**
+   * @route GET /api/eth/nexon/getTotalETH
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getTotalETH', contractApi.getTotalETH);
+
+   /**
+   * @typedef getStakingCount
+   */
+   /**
+   * @route GET /api/eth/nexon/getStakingCount
+   * @group Smart_Contract_API
+   * @security Basic Auth
+   */
+router.get('/getStakingCount', contractApi.getStakingCount);
+
+    /**
+    * @typedef getMyPurchasedTokens
+    * @property {String} address.required - Add address - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getMyPurchasedTokens
+    * @param {getMyPurchasedTokens.model} address.query
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.get('/getMyPurchasedTokens', contractApi.getMyPurchasedTokens);
+
+    /**
+    * @typedef getETHAmountByAddress
+    * @property {String} address.required - Add address - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getETHAmountByAddress
+    * @param {getETHAmountByAddress.model} address.query
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.get('/getETHAmountByAddress', contractApi.getETHAmountByAddress);
+
+    /**
+    * @typedef getFinalWithdrawlStake
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getFinalWithdrawlStake
+    * @param {getFinalWithdrawlStake.model} id.query
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.get('/getFinalWithdrawlStake', contractApi.getFinalWithdrawlStake);
+
+
+
+
+
+
 
     
 
