@@ -1,0 +1,9 @@
+{
+  "auth": {
+		"user": "user",
+		"pass": "pass"
+    },
+    "connectionURL": "https://ropsten.infura.io/v3/92a626fb48cc4368a08cb87b51b6e967",
+    "contractAddress": "0xAC5C6fc7c05F3e82e65f1B3D6D98Cc5a8E8749f4"
+  }
+
