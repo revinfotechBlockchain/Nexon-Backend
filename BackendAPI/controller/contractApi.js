@@ -317,17 +317,58 @@ transferOwnership: async (req, res) => {
 //--------------------------------------------------------------API FOR NEXON FUNCTIONALITY--------------------------------------------------------------------------//
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
-getSaleIdNow: async (req, res) => {
+getBigPayDay: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getSaleIdNow().call();
-        let response = {status:true, Id:resp};
+        var resp = await newContract.methods.getBigPayDay().call();
+        const unixEpochTimeMS = resp * 1000;
+        const d = new Date(unixEpochTimeMS);
+        const time = d.toLocaleString();
+        let response = {status:true, day:time};
         res.send(response);
     } catch(err){
-        let response = {status:false, message:"Unable to get Sale ID , Please Try Again!!!"};
+        let response = {status:false, message:"Unable to get Bigpay Day, Please Try Again!!!"};
         res.send(response);
     }
 },
+
+getBigPayDayPercentage: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getBigPayDayPercentage().call();
+        let response = {status:true, percentage:resp/100};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Bigpay Day Percentage, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getTokenpoolAddress: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getTokenpoolAddress().call();
+        let response = {status:true, address:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Tokenpool Address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getPurchaseableTokenAddress: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getpurchaseableTokensAddress().call();
+        let response = {status:true, address:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Purchaseable Token Address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+
 
 getStartTime: async (req, res) => {
     try {
@@ -342,271 +383,6 @@ getStartTime: async (req, res) => {
         }
     } catch(err){
         let response = {status:false, message:"Unable to get Start Time by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getEndTime: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getEndTime(req.query.saleId).call();
-            let response = {status:true, time:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get End Time by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getWinningNumber: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getWinningNumber(req.query.saleId).call();
-            let response = {status:true, number:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Winning Number by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getWinningAmount: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getWinningAmount(req.query.saleId).call();
-            let response = {status:true, amount:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Winning Amount by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getWinningAddress: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getWinningAddress(req.query.saleId).call();
-            let response = {status:true, address:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Winning Address by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getAllSaleAddresses: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getAllSaleAddressesBySaleID(req.query.saleId).call();
-            let response = {status:true, addresses:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get All Sale Addresses by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getAllParticipantAddresses: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getAllParticipantAddresses().call();
-        let response = {status:true, Addresses:resp};
-        res.send(response);
-    } catch(err){
-        let response = {status:false, message:"Unable to get All Participant Addresses , Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getTotalSaleAmountBySaleID: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getTotalSaleAmountBySaleID(req.query.saleId).call();
-            let response = {status:true, totalSaleAmount:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Total Sale Amount by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getTotalSaleAmountForAllSale: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getTotalSaleAmountForAllSale().call();
-        let response = {status:true, allSaleAmount:resp};
-        res.send(response);
-    } catch(err){
-        let response = {status:false, message:"Unable to get All Sale Total Amount, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getParticipantCountBySaleId: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == ""){
-            var resp = await newContract.methods.getParticipantCountBySaleId(req.query.saleId).call();
-            let response = {status:true, participantCount:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Participant Count by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getPriceOfOneTicket: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getPriceOfOneTicket().call();
-        let response = {status:true, price:resp};
-        res.send(response);
-    } catch(err){
-        let response = {status:false, message:"Unable to get Price of One Ticket, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getticketNumberByAddress: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == "" && req.query.address && !req.query.address == ""){
-            var resp = await newContract.methods.getticketNumberByAddress(req.query.saleId, req.query.address).call();
-            let response = {status:true, ticketNumber:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id or Address & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Ticket Number by Sale ID, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getAddressesByTicketNumber: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        if(req.query.saleId && !req.query.saleId == "" && req.query.ticketNumber && !req.query.ticketNumber == ""){
-            var resp = await newContract.methods.getAddressesByTicketNumber(req.query.saleId, req.query.ticketNumber).call();
-            let response = {status:true, addresses:resp};
-            res.send(response);
-        } else {
-            let response = {status:false, message:"Enter Valid Sale Id or Ticket Number & Try Again!!!"};
-            res.send(response);
-        }
-    } catch(err){
-        let response = {status:false, message:"Unable to get Address by Ticket Number, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getpurchaseTokenAmount: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getpurchaseTokenAmount().call();
-        let response = {status:true, tokenAmount:resp};
-        res.send(response);
-    } catch(err){
-        let response = {status:false, message:"Unable to get Purchased token Amount, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getbuyerPoolAddress: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getbuyerPoolAddress().call();
-        let response = {status:true, address:resp};
-        res.send(response);
-    } catch(err){
-        let response = {status:false, message:"Unable to get Buyer pool Address, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-getMaximumTicketPerEvent: async (req, res) => {
-    try {
-        var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getMaximumTicketPerEvent().call();
-        let response = {status:true, maximumTicketNumber:resp};
-        res.send(response);
-    } catch(err){
-        let response = {status:false, message:"Unable to get Buyer pool Address, Please Try Again!!!"};
-        res.send(response);
-    }
-},
-
-purchaseTicket: async (req, res) => {
-    try {
-    var convert = Buffer.from(req.body.value, 'utf8').toString('hex');
-    var val = web3.utils.toHex(convert);
-    var gasPrice = '0x09184e72a000';
-    var gasLimit = 55000;
-    var count = await web3.eth.getTransactionCount('0xf49ddDB0019ED8b03C03e75a9329a98746847dE5');
-    var contract = await new web3.eth.Contract(abi,contractAddress,{from: req.body.fromAddress});    
-    var chainId = 0x01;
-
-    var rawTx = {
-        "from": req.body.fromAddress,
-        "nonce": "0x" + count.toString(16),
-        "gasPrice": gasPrice,
-        "gasLimit": gasLimit,
-        "to": contractAddress,
-        "value": val, // Indication that we are not sending any ethers but our own tokens
-        "data": contract.methods.purchaseTicket([req.body.ticketNumber]).encodeABI(),
-        "chainId": chainId
-        };
-
-    var privKeyBuffer = new Buffer(req.body.privateKey, 'hex');
-    const tx = new Txs(rawTx,{'chain':'ropsten'});
-    tx.sign(privKeyBuffer);
-    web3.eth.sendSignedTransaction('0x' + tx.serialize().toString('hex'), function(error, tHash) {
-
-    if (error){
-    let response = '{"status":"false","hash":"","error":"'+error+'"}';
-    res.send(JSON.parse(response));
-    }
-    else{
-    let response = '{"status":"true","hash":"'+tHash+'","error":""}';
-    res.send(JSON.parse(response));
-    }});
-    } catch(err){
-        let response = {status:false, message:"Unable to Purhase Ticket, Please Try Again!!!"};
         res.send(response);
     }
 },
