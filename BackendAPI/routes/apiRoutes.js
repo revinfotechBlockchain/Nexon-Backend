@@ -517,12 +517,6 @@ router.post('/setRewardPercentage', contractApi.setRewardPercentage);
     */
 router.post('/setPenaltyPercentage', contractApi.setPenaltyPercentage);
 
-
-
-
-
-    
-
     
 
 module.exports= router
