@@ -417,7 +417,105 @@ router.get('/getETHAmountByAddress', contractApi.getETHAmountByAddress);
     */
 router.get('/getFinalWithdrawlStake', contractApi.getFinalWithdrawlStake);
 
+//----------------------------------------set api-----------------------//
 
+    /**
+    * @typedef setBigPayDay
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} day.required - Add day - eg: 12
+    */
+    /**
+    * @route POST /api/eth/nexon/setBigPayDay
+    * @param {setBigPayDay.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setBigPayDay', contractApi.setBigPayDay); 
+
+    /**
+    * @typedef setBigPayDayPercentage
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} percentage.required - Add percentage - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/setBigPayDayPercentage
+    * @param {setBigPayDayPercentage.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setBigPayDayPercentage', contractApi.setBigPayDayPercentage); 
+
+    /**
+    * @typedef setTokenPoolAddress
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} address.required - Add address - eg: zxcvbnmnbvxzxcvbnm
+    */
+    /**
+    * @route POST /api/eth/nexon/setTokenPoolAddress
+    * @param {setTokenPoolAddress.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setTokenPoolAddress', contractApi.setTokenPoolAddress); 
+
+    /**
+    * @typedef setpurchaseableTokenAddress
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} address.required - Add address - eg: zxcvbnmnbvxzxcvbnm
+    */
+    /**
+    * @route POST /api/eth/nexon/setpurchaseableTokenAddress
+    * @param {setpurchaseableTokenAddress.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setpurchaseableTokenAddress', contractApi.setpurchaseableTokenAddress); 
+
+    /**
+    * @typedef setPriceOfToken
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} price.required - Add price - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/setPriceOfToken
+    * @param {setPriceOfToken.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setPriceOfToken', contractApi.setPriceOfToken);
+
+    /**
+    * @typedef setRewardPercentage
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} percentage.required - Add percentage - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/setRewardPercentage
+    * @param {setRewardPercentage.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setRewardPercentage', contractApi.setRewardPercentage);
+
+    /**
+    * @typedef setPenaltyPercentage
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} percentage.required - Add percentage - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/setPenaltyPercentage
+    * @param {setPenaltyPercentage.model} req.body
+    * @group Smart_Contract_API
+    * @security Basic Auth
+    */
+router.post('/setPenaltyPercentage', contractApi.setPenaltyPercentage);
 
 
 
