@@ -242,7 +242,7 @@ router.post('/transferOwnership', contractApi.transferOwnership);
    */
    /**
    * @route GET /api/eth/nexon/getBigPayDay
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getBigPayDay', contractApi.getBigPayDay);
@@ -252,7 +252,7 @@ router.get('/getBigPayDay', contractApi.getBigPayDay);
    */
    /**
    * @route GET /api/eth/nexon/getBigPayDayPercentage
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getBigPayDayPercentage', contractApi.getBigPayDayPercentage);
@@ -262,7 +262,7 @@ router.get('/getBigPayDayPercentage', contractApi.getBigPayDayPercentage);
    */
    /**
    * @route GET /api/eth/nexon/getTokenpoolAddress
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getTokenpoolAddress', contractApi.getTokenpoolAddress);
@@ -272,7 +272,7 @@ router.get('/getTokenpoolAddress', contractApi.getTokenpoolAddress);
    */
    /**
    * @route GET /api/eth/nexon/getPurchaseableTokenAddress
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getPurchaseableTokenAddress', contractApi.getPurchaseableTokenAddress);
@@ -282,7 +282,7 @@ router.get('/getPurchaseableTokenAddress', contractApi.getPurchaseableTokenAddre
    */
    /**
    * @route GET /api/eth/nexon/getPriceOfToken
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getPriceOfToken', contractApi.getPriceOfToken);
@@ -292,7 +292,7 @@ router.get('/getPriceOfToken', contractApi.getPriceOfToken);
    */
    /**
    * @route GET /api/eth/nexon/getRewardPercentage
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getRewardPercentage', contractApi.getRewardPercentage);
@@ -302,7 +302,7 @@ router.get('/getRewardPercentage', contractApi.getRewardPercentage);
    */
    /**
    * @route GET /api/eth/nexon/getPenaltyPercentage
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getPenaltyPercentage', contractApi.getPenaltyPercentage);
@@ -314,7 +314,7 @@ router.get('/getPenaltyPercentage', contractApi.getPenaltyPercentage);
     /**
     * @route GET /api/eth/nexon/getPenaltyIfWithdrawToday
     * @param {getPenaltyIfWithdrawToday.model} id.query
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.get('/getPenaltyIfWithdrawToday', contractApi.getPenaltyIfWithdrawToday);
@@ -324,7 +324,7 @@ router.get('/getPenaltyIfWithdrawToday', contractApi.getPenaltyIfWithdrawToday);
    */
    /**
    * @route GET /api/eth/nexon/getReferralAddress
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getReferralAddress', contractApi.getReferralAddress);
@@ -334,7 +334,7 @@ router.get('/getReferralAddress', contractApi.getReferralAddress);
    */
    /**
    * @route GET /api/eth/nexon/getReferralAmount
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getReferralAmount', contractApi.getReferralAmount);
@@ -344,7 +344,7 @@ router.get('/getReferralAmount', contractApi.getReferralAmount);
    */
    /**
    * @route GET /api/eth/nexon/getClaimTokens
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getClaimTokens', contractApi.getClaimTokens);
@@ -356,7 +356,7 @@ router.get('/getClaimTokens', contractApi.getClaimTokens);
     /**
     * @route GET /api/eth/nexon/getRewardsDetailsOfUserById
     * @param {getRewardsDetailsOfUserById.model} id.query
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.get('/getRewardsDetailsOfUserById', contractApi.getRewardsDetailsOfUserById);
@@ -366,7 +366,7 @@ router.get('/getRewardsDetailsOfUserById', contractApi.getRewardsDetailsOfUserBy
    */
    /**
    * @route GET /api/eth/nexon/getTotalETH
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getTotalETH', contractApi.getTotalETH);
@@ -376,7 +376,7 @@ router.get('/getTotalETH', contractApi.getTotalETH);
    */
    /**
    * @route GET /api/eth/nexon/getStakingCount
-   * @group Smart_Contract_API
+   * @group Nexon_API
    * @security Basic Auth
    */
 router.get('/getStakingCount', contractApi.getStakingCount);
@@ -388,7 +388,7 @@ router.get('/getStakingCount', contractApi.getStakingCount);
     /**
     * @route GET /api/eth/nexon/getMyPurchasedTokens
     * @param {getMyPurchasedTokens.model} address.query
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.get('/getMyPurchasedTokens', contractApi.getMyPurchasedTokens);
@@ -400,7 +400,7 @@ router.get('/getMyPurchasedTokens', contractApi.getMyPurchasedTokens);
     /**
     * @route GET /api/eth/nexon/getETHAmountByAddress
     * @param {getETHAmountByAddress.model} address.query
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.get('/getETHAmountByAddress', contractApi.getETHAmountByAddress);
@@ -412,7 +412,7 @@ router.get('/getETHAmountByAddress', contractApi.getETHAmountByAddress);
     /**
     * @route GET /api/eth/nexon/getFinalWithdrawlStake
     * @param {getFinalWithdrawlStake.model} id.query
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.get('/getFinalWithdrawlStake', contractApi.getFinalWithdrawlStake);
@@ -428,7 +428,7 @@ router.get('/getFinalWithdrawlStake', contractApi.getFinalWithdrawlStake);
     /**
     * @route POST /api/eth/nexon/setBigPayDay
     * @param {setBigPayDay.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setBigPayDay', contractApi.setBigPayDay); 
@@ -442,7 +442,7 @@ router.post('/setBigPayDay', contractApi.setBigPayDay);
     /**
     * @route POST /api/eth/nexon/setBigPayDayPercentage
     * @param {setBigPayDayPercentage.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setBigPayDayPercentage', contractApi.setBigPayDayPercentage); 
@@ -456,7 +456,7 @@ router.post('/setBigPayDayPercentage', contractApi.setBigPayDayPercentage);
     /**
     * @route POST /api/eth/nexon/setTokenPoolAddress
     * @param {setTokenPoolAddress.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setTokenPoolAddress', contractApi.setTokenPoolAddress); 
@@ -470,7 +470,7 @@ router.post('/setTokenPoolAddress', contractApi.setTokenPoolAddress);
     /**
     * @route POST /api/eth/nexon/setpurchaseableTokenAddress
     * @param {setpurchaseableTokenAddress.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setpurchaseableTokenAddress', contractApi.setpurchaseableTokenAddress); 
@@ -484,7 +484,7 @@ router.post('/setpurchaseableTokenAddress', contractApi.setpurchaseableTokenAddr
     /**
     * @route POST /api/eth/nexon/setPriceOfToken
     * @param {setPriceOfToken.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setPriceOfToken', contractApi.setPriceOfToken);
@@ -498,7 +498,7 @@ router.post('/setPriceOfToken', contractApi.setPriceOfToken);
     /**
     * @route POST /api/eth/nexon/setRewardPercentage
     * @param {setRewardPercentage.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setRewardPercentage', contractApi.setRewardPercentage);
@@ -512,10 +512,67 @@ router.post('/setRewardPercentage', contractApi.setRewardPercentage);
     /**
     * @route POST /api/eth/nexon/setPenaltyPercentage
     * @param {setPenaltyPercentage.model} req.body
-    * @group Smart_Contract_API
+    * @group Nexon_API
     * @security Basic Auth
     */
 router.post('/setPenaltyPercentage', contractApi.setPenaltyPercentage);
+
+    /**
+    * @typedef setReferralAddress
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} referralAddress.required - Add referralAddress - eg: zxvxzxcvx
+    */
+    /**
+    * @route POST /api/eth/nexon/setReferralAddress
+    * @param {setReferralAddress.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/setReferralAddress', contractApi.setReferralAddress);
+
+    /**
+    * @typedef setReferralAmount
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} amount.required - Add amount - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/setReferralAmount
+    * @param {setReferralAmount.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/setReferralAmount', contractApi.setReferralAmount);
+
+    /**
+    * @typedef setClaimTokens
+    * @property {String} privateKey.required - Add privateKey - eg: 90d6bfe121ca841b624028284687917843a03f88b84943d1d4d20336ab67fbb6
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} token.required - Add token - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/setClaimTokens
+    * @param {setClaimTokens.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/setClaimTokens', contractApi.setClaimTokens);
+
+    /**
+    * @typedef performStakingToken
+    * @property {String} privateKey.required - Add privateKey - eg: XdAUmwtig27HBG6WfYyHAzP8n6XC9jESEw
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} amount.required - Add amount - eg: 1234
+    * @property {String} time.required - Add time - eg: 2
+    */
+    /**
+    * @route POST /api/eth/nexon/performStakingToken
+    * @param {performStakingToken.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/performStakingToken', contractApi.performStakingToken);
 
     
 
