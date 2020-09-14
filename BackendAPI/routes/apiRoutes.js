@@ -574,6 +574,47 @@ router.post('/setClaimTokens', contractApi.setClaimTokens);
     */
 router.post('/performStakingToken', contractApi.performStakingToken);
 
+    /**
+    * @typedef withdrawStakingToken
+    * @property {String} privateKey.required - Add privateKey - eg: XdAUmwtig27HBG6WfYyHAzP8n6XC9jESEw
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} stakingId.required - Add stakingId - eg: 2
+    */
+    /**
+    * @route POST /api/eth/nexon/withdrawStakingToken
+    * @param {withdrawStakingToken.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/withdrawStakingToken', contractApi.withdrawStakingToken);
+
+    /**
+    * @typedef withdrawPurchasedToken
+    * @property {String} privateKey.required - Add privateKey - eg: XdAUmwtig27HBG6WfYyHAzP8n6XC9jESEw
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    */
+    /**
+    * @route POST /api/eth/nexon/withdrawPurchasedToken
+    * @param {withdrawPurchasedToken.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/withdrawPurchasedToken', contractApi.withdrawPurchasedToken);
+
+    /**
+    * @typedef withdrawReferral
+    * @property {String} privateKey.required - Add privateKey - eg: XdAUmwtig27HBG6WfYyHAzP8n6XC9jESEw
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} address.required - Add address - eg: asdfghjkhgdsasfhjk
+    */
+    /**
+    * @route POST /api/eth/nexon/withdrawReferral
+    * @param {withdrawReferral.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/withdrawReferral', contractApi.withdrawReferral);
+
     
 
 module.exports= router
