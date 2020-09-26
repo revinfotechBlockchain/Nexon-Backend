@@ -44,7 +44,6 @@ createAccount:  async (req, res) => {
 getETHBalance:  async(req, res) => {
 
         if (req.query.address && !req.query.address == "") {
-            console.log(req.query.address)
             await  web3js.eth.getBalance(req.query.address).then(output => {
                 let response = {status:true, address:req.query.address, balance:output.toString()};
                 res.send(response);

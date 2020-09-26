@@ -477,7 +477,7 @@ getRewardsDetailsOfUserById: async (req, res) => {
 getTotalETH: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
-        var resp = await newContract.methods.getTotalTrx().call();
+        var resp = await newContract.methods.getTotalETH().call();
         let response = {status:true, ETH:resp};
         res.send(response);
     } catch(err){
@@ -519,7 +519,7 @@ getETHAmountByAddress: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
         if(req.query.address && !req.query.address == ""){
-            var resp = await newContract.methods.getTrxAmountByAddress(req.query.address).call();
+            var resp = await newContract.methods.getETHAmountByAddress(req.query.address).call();
             let response = {status:true, amount:resp};
             res.send(response);
         } else {
