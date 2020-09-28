@@ -321,7 +321,8 @@ getContractETHBalance: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
         var resp = await newContract.methods.getContractETHBalance().call();
-        let response = {status:true, balance:resp};
+        let balance = resp/1000000000000000000;
+        let response = {status:true, balance:balance};
         res.send(response);
     } catch(err){
         let response = {status:false, message:"Unable to get Contract ETH Balance, Please Try Again!!!"};
