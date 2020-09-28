@@ -45,7 +45,8 @@ getETHBalance:  async(req, res) => {
 
         if (req.query.address && !req.query.address == "") {
             await  web3js.eth.getBalance(req.query.address).then(output => {
-                let response = {status:true, address:req.query.address, balance:output.toString()};
+                let balance = output/1000000000000000000;
+                let response = {status:true, address:req.query.address, balance:balance};
                 res.send(response);
             }).catch(err => {
                 let response = {status:false, message:"Unable to get Balance Details, Please Try Again!!!"};

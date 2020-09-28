@@ -237,6 +237,17 @@ router.post('/transferOwnership', contractApi.transferOwnership);
 //-------------------------------------------------------------ROUTES FOR NEXON FUNCTIONALITY------------------------------------------------------------------------//
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+//-----------------------------------------------------------------------GET FUNCTIONS-------------------------------------------------------------------------------//
+   /**
+   * @typedef getContractETHBalance
+   */
+   /**
+   * @route GET /api/eth/nexon/getContractETHBalance
+   * @group Nexon_API
+   * @security Basic Auth
+   */
+router.get('/getContractETHBalance', contractApi.getContractETHBalance);
+
    /**
    * @typedef getBigPayDay
    */
@@ -383,7 +394,7 @@ router.get('/getStakingCount', contractApi.getStakingCount);
 
     /**
     * @typedef getMyPurchasedTokens
-    * @property {String} address.required - Add address - eg: 1
+    * @property {String} address.required - Add address - eg: asfghsfgxvdddf
     */
     /**
     * @route GET /api/eth/nexon/getMyPurchasedTokens
@@ -395,7 +406,7 @@ router.get('/getMyPurchasedTokens', contractApi.getMyPurchasedTokens);
 
     /**
     * @typedef getETHAmountByAddress
-    * @property {String} address.required - Add address - eg: 1
+    * @property {String} address.required - Add address - eg: asdfhjkjhgfsazxcvbnkjhg
     */
     /**
     * @route GET /api/eth/nexon/getETHAmountByAddress
@@ -404,6 +415,18 @@ router.get('/getMyPurchasedTokens', contractApi.getMyPurchasedTokens);
     * @security Basic Auth
     */
 router.get('/getETHAmountByAddress', contractApi.getETHAmountByAddress);
+
+    /**
+    * @typedef getOpenOrderETHAmountByAddress
+    * @property {String} address.required - Add address - eg: asfhjkjhgfdsdvbn
+    */
+    /**
+    * @route GET /api/eth/nexon/getOpenOrderETHAmountByAddress
+    * @param {getOpenOrderETHAmountByAddress.model} address.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getOpenOrderETHAmountByAddress', contractApi.getOpenOrderETHAmountByAddress);
 
     /**
     * @typedef getFinalWithdrawlStake
@@ -417,7 +440,173 @@ router.get('/getETHAmountByAddress', contractApi.getETHAmountByAddress);
     */
 router.get('/getFinalWithdrawlStake', contractApi.getFinalWithdrawlStake);
 
-//----------------------------------------set api-----------------------//
+    /**
+    * @typedef getStakingAddressById
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getStakingAddressById
+    * @param {getStakingAddressById.model} id.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getStakingAddressById', contractApi.getStakingAddressById);
+
+    /**
+    * @typedef getStakingStartTimeById
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getStakingStartTimeById
+    * @param {getStakingStartTimeById.model} id.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getStakingStartTimeById', contractApi.getStakingStartTimeById);
+
+    /**
+    * @typedef getStakingEndTimeById
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getStakingEndTimeById
+    * @param {getStakingEndTimeById.model} id.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getStakingEndTimeById', contractApi.getStakingEndTimeById);
+
+    /**
+    * @typedef getStakingTokenById
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getStakingTokenById
+    * @param {getStakingTokenById.model} id.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getStakingTokenById', contractApi.getStakingTokenById);
+
+    /**
+    * @typedef getActiveStakesById
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getActiveStakesById
+    * @param {getActiveStakesById.model} id.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getActiveStakesById', contractApi.getActiveStakesById);
+
+    /**
+    * @typedef getReferralHistory
+    * @property {String} address.required - Add address - eg: qwertytrdfgfdytr
+    */
+    /**
+    * @route GET /api/eth/nexon/getReferralHistory
+    * @param {getReferralHistory.model} address.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getReferralHistory', contractApi.getReferralHistory);
+
+    /**
+    * @typedef getTokenLockstatus
+    * @property {String} id.required - Add id - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getTokenLockstatus
+    * @param {getTokenLockstatus.model} id.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getTokenLockstatus', contractApi.getTokenLockstatus);
+
+    /**
+    * @typedef getInterest
+    */
+    /**
+    * @route GET /api/eth/nexon/getInterest
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getInterest', contractApi.getInterest);
+
+    /**
+    * @typedef getDateOfClaimBTC
+    * @property {String} btcId.required - Add btcId - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getDateOfClaimBTC
+    * @param {getDateOfClaimBTC.model} btcId.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getDateOfClaimBTC', contractApi.getDateOfClaimBTC);
+
+    /**
+    * @typedef getBTCClaimCount
+    */
+    /**
+    * @route GET /api/eth/nexon/getBTCClaimCount
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getBTCClaimCount', contractApi.getBTCClaimCount);
+
+    /**
+    * @typedef getUserAddressForClaimBTC
+    * @property {String} btcId.required - Add btcId - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getUserAddressForClaimBTC
+    * @param {getUserAddressForClaimBTC.model} btcId.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getUserAddressForClaimBTC', contractApi.getUserAddressForClaimBTC);
+
+    /**
+    * @typedef getClaimedBTCAddress
+    * @property {String} btcId.required - Add btcId - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getClaimedBTCAddress
+    * @param {getClaimedBTCAddress.model} btcId.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getClaimedBTCAddress', contractApi.getClaimedBTCAddress);
+
+    /**
+    * @typedef getRawBTCAmount
+    * @property {String} btcId.required - Add btcId - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getRawBTCAmount
+    * @param {getRawBTCAmount.model} btcId.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getRawBTCAmount', contractApi.getRawBTCAmount);
+
+    /**
+    * @typedef getClaimedAmountByBTC
+    * @property {String} btcId.required - Add btcId - eg: 1
+    */
+    /**
+    * @route GET /api/eth/nexon/getClaimedAmountByBTC
+    * @param {getClaimedAmountByBTC.model} btcId.query
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.get('/getClaimedAmountByBTC', contractApi.getClaimedAmountByBTC);
+
+
+
+//-----------------------------------------------------------------------GET FUNCTIONS-------------------------------------------------------------------------------//
 
     /**
     * @typedef setBigPayDay
@@ -587,6 +776,20 @@ router.post('/performStakingToken', contractApi.performStakingToken);
     * @security Basic Auth
     */
 router.post('/withdrawStakingToken', contractApi.withdrawStakingToken);
+
+    /**
+    * @typedef purchaseTokens
+    * @property {String} privateKey.required - Add privateKey - eg: 0x3e2b296f55b5768b0b6e28fa318e613a4c4bfa3a26142e89453eb6a89f7f5978
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    * @property {String} value.required - Add value - eg: 1
+    */
+    /**
+    * @route POST /api/eth/nexon/purchaseTokens
+    * @param {purchaseTokens.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/purchaseTokens', contractApi.purchaseTokens);
 
     /**
     * @typedef withdrawPurchasedToken

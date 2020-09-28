@@ -317,6 +317,18 @@ transferOwnership: async (req, res) => {
 //--------------------------------------------------------------API FOR NEXON FUNCTIONALITY--------------------------------------------------------------------------//
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
+getContractETHBalance: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        var resp = await newContract.methods.getContractETHBalance().call();
+        let response = {status:true, balance:resp};
+        res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Contract ETH Balance, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
 getBigPayDay: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
@@ -532,6 +544,23 @@ getETHAmountByAddress: async (req, res) => {
     }
 },
 
+getOpenOrderETHAmountByAddress: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.address && !req.query.address == ""){
+            var resp = await newContract.methods.getOpenOrderETHAmountByAddress(req.query.address).call();
+            let response = {status:true, amount:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Address & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get open order ETH amount by address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
 getFinalWithdrawlStake: async (req, res) => {
     try {
         var newContract = await new web3.eth.Contract(abi,contractAddress);
@@ -548,7 +577,235 @@ getFinalWithdrawlStake: async (req, res) => {
         res.send(response);
     }
 },
- 
+
+getStakingAddressById: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getStakingAddressById(req.query.id).call();
+            let response = {status:true, address:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Staking Address by staking id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getStakingStartTimeById: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getStakingStartTimeById(req.query.id).call();
+            let response = {status:true, time:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Staking start time by staking id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getStakingEndTimeById: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getStakingEndTimeById(req.query.id).call();
+            let response = {status:true, time:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Staking end time by staking id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getStakingTokenById: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getStakingTokenById(req.query.id).call();
+            let response = {status:true, token:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Staking token by staking id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getActiveStakesById: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getActiveStakesById(req.query.id).call();
+            let response = {status:true, activeStakes:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Active stakes by staking id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getReferralHistory: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.address && !req.query.address == ""){
+            var resp = await newContract.methods.getReferralHistory(req.query.address).call();
+            let response = {status:true, history:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid address & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Referral history by staking address, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getTokenLockstatus: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.id && !req.query.id == ""){
+            var resp = await newContract.methods.getTokenLockstatus(req.query.id).call();
+            let response = {status:true, lockingStatus:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Token lock status by staking id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getInterest: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+            var resp = await newContract.methods.getInterest().call();
+            let response = {status:true, intrest:resp};
+            res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get Interest Amount, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getDateOfClaimBTC: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.btcId && !req.query.btcId == ""){
+            var resp = await newContract.methods.getDateOfClaimBTC(req.query.btcId).call();
+            let response = {status:true, date:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get date of Claim BTC by BTC id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getBTCClaimCount: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+            var resp = await newContract.methods.getBTCClaimCount().call();
+            let response = {status:true, count:resp};
+            res.send(response);
+    } catch(err){
+        let response = {status:false, message:"Unable to get BTC Claim count, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getUserAddressForClaimBTC: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.btcId && !req.query.btcId == ""){
+            var resp = await newContract.methods.getUserAddressForClaimBTC(req.query.btcId).call();
+            let response = {status:true, address:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get User address for claimed BTC by BTC id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getClaimedBTCAddress: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.btcId && !req.query.btcId == ""){
+            var resp = await newContract.methods.getClaimedBTCAddress(req.query.btcId).call();
+            let response = {status:true, address:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Address of claimed BTC by BTC id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getRawBTCAmount: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.btcId && !req.query.btcId == ""){
+            var resp = await newContract.methods.getRawBTCAmount(req.query.btcId).call();
+            let response = {status:true, amount:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Raw BTC amount by BTC id, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+getClaimedAmountByBTC: async (req, res) => {
+    try {
+        var newContract = await new web3.eth.Contract(abi,contractAddress);
+        if(req.query.btcId && !req.query.btcId == ""){
+            var resp = await newContract.methods.getClaimedAmountByBTC(req.query.btcId).call();
+            let response = {status:true, claimedAmount:resp};
+            res.send(response);
+        } else {
+            let response = {status:false, message:"Enter Valid Id & Try Again!!!"};
+            res.send(response);
+        }
+    } catch(err){
+        let response = {status:false, message:"Unable to get Claimed amount by BTC, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
 //-----------------------------------------------------------------------SET FUNCTIONS------------------------------------------------------------------------//
 
 
@@ -1016,6 +1273,47 @@ withdrawStakingToken: async (req, res) => {
     } catch(err){
         console.log(err)
         let response = {status:false, message:"Unable to withdraw Staking token, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
+purchaseTokens: async (req, res) => {
+    try {
+    var convert = req.body.value;
+    var val = web3.utils.toHex(convert);
+    var gasPrice = '0x09184e72a000';
+    var gasLimit = 60000;
+    var count = await web3.eth.getTransactionCount(req.body.fromAddress);
+    var contract = await new web3.eth.Contract(abi,contractAddress,{from: req.body.fromAddress});    
+    var chainId = 0x01;
+
+    var rawTx = {
+        "from": req.body.fromAddress,
+        "nonce": "0x" + count.toString(16),
+        "gasPrice": gasPrice,
+        "gasLimit": gasLimit,
+        "to": contractAddress,
+        "value": val, 
+        "data": contract.methods.purchaseTokens().encodeABI(),
+        "chainId": chainId
+        };
+
+    var privKeyBuffer = new Buffer(req.body.privateKey, 'hex');
+    const tx = new Txs(rawTx,{'chain':'ropsten'});
+    tx.sign(privKeyBuffer);
+    web3.eth.sendSignedTransaction('0x' + tx.serialize().toString('hex'), function(error, tHash) {
+
+    if (error){
+    let response = '{"status":"false","hash":"","error":"'+error+'"}';
+    res.send(JSON.parse(response));
+    }
+    else{
+    let response = '{"status":"true","hash":"'+tHash+'","error":""}';
+    res.send(JSON.parse(response));
+    }});
+    } catch(err){
+         console.log(err)
+        let response = {status:false, message:"Unable to Purchase token, Please Try Again!!!"};
         res.send(response);
     }
 },
