@@ -1273,7 +1273,7 @@ withdrawStakingToken: async (req, res) => {
     }});
     } catch(err){
         console.log(err)
-        let response = {status:false, message:"Unable to withdraw Staking token, Please Try Again!!!"};
+        let response = {status:false, message:"Unable to withdraw staking token, Please Try Again!!!"};
         res.send(response);
     }
 },
@@ -1392,7 +1392,7 @@ withdrawReferral: async (req, res) => {
     }});
     } catch(err){
         console.log(err)
-        let response = {status:false, message:"Unable to withdraw referral by address, Please Try Again!!!"};
+        let response = {status:false, message:"Unable to withdraw Referral by address, Please Try Again!!!"};
         res.send(response);
     }
 },
