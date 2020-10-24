@@ -1397,4 +1397,43 @@ withdrawReferral: async (req, res) => {
     }
 },
 
+withdrawETH: async (req, res) => {
+    try {
+    var gasPrice = '0x09184e72a000';
+    var gasLimit = 55000;
+    var count = await web3.eth.getTransactionCount(req.body.fromAddress);
+    var contract = await new web3.eth.Contract(abi,contractAddress,{from: req.body.fromAddress});    
+    var chainId = 0x01;
+
+    var rawTx = {
+        "from": req.body.fromAddress,
+        "nonce": "0x" + count.toString(16),
+        "gasPrice": gasPrice,
+        "gasLimit": gasLimit,
+        "to": contractAddress,
+        "value": "0x0", // Indication that we are not sending any ethers but our own tokens
+        "data": contract.methods.withdrawETH().encodeABI(),
+        "chainId": chainId
+    };
+
+    var privKeyBuffer = new Buffer(req.body.privateKey, 'hex');
+    const tx = new Txs(rawTx,{'chain':'ropsten'});
+    tx.sign(privKeyBuffer);
+    web3.eth.sendSignedTransaction('0x' + tx.serialize().toString('hex'), function(error, tHash) {
+
+    if (error){
+    let response = '{"status":"false","hash":"","error":"'+error+'"}';
+    res.send(JSON.parse(response));
+    }
+    else {
+    let response = '{"status":"true","hash":"'+tHash+'","error":""}';
+    res.send(JSON.parse(response));
+    }});
+    } catch(err){
+        console.log(err)
+        let response = {status:false, message:"Unable to withdraw ETH, Please Try Again!!!"};
+        res.send(response);
+    }
+},
+
 }

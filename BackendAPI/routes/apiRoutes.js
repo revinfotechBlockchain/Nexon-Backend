@@ -818,6 +818,19 @@ router.post('/withdrawPurchasedToken', contractApi.withdrawPurchasedToken);
     */
 router.post('/withdrawReferral', contractApi.withdrawReferral);
 
+    /**
+    * @typedef withdrawETH
+    * @property {String} privateKey.required - Add privateKey - eg: XdAUmwtig27HBG6WfYyHAzP8n6XC9jESEw
+    * @property {String} fromAddress.required - Add fromAddress - eg: asdfghjkhgdsasfhjk
+    */
+    /**
+    * @route POST /api/eth/nexon/withdrawETH
+    * @param {withdrawETH.model} req.body
+    * @group Nexon_API
+    * @security Basic Auth
+    */
+router.post('/withdrawETH', contractApi.withdrawETH);
+
     
 
 module.exports= router

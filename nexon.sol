@@ -1,3 +1,7 @@
+/**
+ *Submitted for verification at Etherscan.io on 2020-09-28
+*/
+
 pragma solidity ^0.4.24;
 
  /**
@@ -797,7 +801,6 @@ interface IERC20 {
     return _rewardPercentage;
   }
   
-  // funtion to get date of claimed BTC
   function getDateOfClaimBTC(uint256 idClaimBTC)public view returns(uint256){
     return(_dateOfClaimBTC[idClaimBTC]);
   }
